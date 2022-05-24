@@ -25,6 +25,9 @@ class Main(QWidget):
 
         self.mwg.actionHistogram.triggered.connect(self.histogram)
         self.mwg.action_dao_anh.triggered.connect(self.dao_anh)
+        self.mwg.action_muc_xam.triggered.connect(self.anh_xam)
+        self.mwg.action_gamma.triggered.connect(self.gamma)
+        self.mwg.action_logaric.triggered.connect(self.logaric)
         self.mwg.actionRotateLeft.triggered.connect(self.rotate_left)
         self.mwg.actionRotateRight.triggered.connect(self.rotate_right)
         self.mwg.actionReset.triggered.connect(self.reset)
@@ -35,6 +38,9 @@ class Main(QWidget):
         self.mwg.slider_blur.valueChanged.connect(self.fn_blur)
         self.mwg.slider_brightness.valueChanged.connect(self.brightness)
         self.mwg.slider_contrast.valueChanged.connect(self.contrast)
+        self.mwg.red.valueChanged.connect(self.color)
+        self.mwg.green.valueChanged.connect(self.color)
+        self.mwg.blue.valueChanged.connect(self.color)
 
         self.mwg.check_canny.toggled.connect(self.update)
 
@@ -49,6 +55,9 @@ class Main(QWidget):
         self.min_edge = 0
         self.max_edge = 0
         self.mwg.slider_brightness.setValue(self.value_brightness)
+        self.red = 0
+        self.green = 0
+        self.blue = 0
 
 
 
@@ -104,6 +113,19 @@ class Main(QWidget):
             self.img = fun.dao_anh(self.img)
             self.load_img_2(self.img)
 
+    def anh_xam(self):
+        if (self.files):
+            self.img = fun.anh_Xam(self.img)
+            self.load_img_2(self.img)
+    def gamma(self):
+        if (self.files):
+            self.img = fun.Chuyen_Doi_Gamma(self.img)
+            self.load_img_2(self.img)
+    def logaric(self):
+        if (self.files):
+            self.img = fun.Chuyen_doi_logarit(self.img)
+            self.load_img_2(self.img)
+
     def rotate_left(self):
         # (h, w) = self.img.shape[:2]
         # center = (w / 2, h / 2)
@@ -136,8 +158,12 @@ class Main(QWidget):
         if(self.files):
             self.value_brightness = self.mwg.slider_brightness.value()
             self.update()            
-
-
+    def color(self):
+        if(self.files):
+            self.red = self.mwg.red.value()
+            self.green = self.mwg.green.value()
+            self.blue = self.mwg.blue.value()
+            self.update()
     def contrast(self):
         if(self.files):
             self.value_contrast = self.mwg.slider_contrast.value()
@@ -147,6 +173,7 @@ class Main(QWidget):
         self.img = fun.brightness(self.image,self.value_brightness)
         self.img = fun.contrast(self.img,self.value_contrast)
         self.img = fun.blur(self.img,self.value_blur)
+        self.img = fun.color(self.img, self.red, self.green, self.blue)
         if self.mwg.check_canny.isChecked():
             self.img = fun.canny_edge_detection(self.img,self.min_edge,self.max_edge)
 

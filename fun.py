@@ -16,6 +16,15 @@ class fun():
         plt.plot(histr)
         plt.show()
 
+    def Chuyen_Doi_Gamma(img):
+        c = 1
+        gamma = 2
+        return c * pow(img, gamma)
+
+    def Chuyen_doi_logarit(img):
+        c = 1
+        return c * cv2.log(1 + img)
+
     def canny_edge_detection(img,threshold1,threshold2):
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         image = cv2.Canny(gray, threshold1, threshold2)
@@ -36,7 +45,6 @@ class fun():
             hsv[:, :, 2][hsv[:, :, 2] > 255] = 255
             hsv = np.array(hsv, dtype=np.uint8)
             res = cv2.cvtColor(hsv, cv2.COLOR_HSV2BGR)
-            print(res)
             return res
     def contrast(img,contrast):
         if contrast != 131:
@@ -45,3 +53,17 @@ class fun():
             gamma_c = 127*(1-f)
             buf = cv2.addWeighted(img, alpha_c, img, 0, gamma_c)
             return buf
+    def color( img, red, green, blue):
+        img = cv2.convertScaleAbs(img)
+        b, g, r = cv2.split(img)
+
+        for r_value in r:
+            cv2.add(r_value, red, r_value)
+        for g_value in g:
+            cv2.add(g_value, green, g_value)
+        for b_value in b:
+            cv2.add(b_value, blue, b_value)
+
+        img = cv2.merge((b, g, r))
+        return img
+    

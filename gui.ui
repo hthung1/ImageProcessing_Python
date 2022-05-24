@@ -72,7 +72,7 @@
    <widget class="Line" name="line">
     <property name="geometry">
      <rect>
-      <x>500</x>
+      <x>430</x>
       <y>620</y>
       <width>16</width>
       <height>141</height>
@@ -85,7 +85,7 @@
    <widget class="QSlider" name="slider_min">
     <property name="geometry">
      <rect>
-      <x>610</x>
+      <x>550</x>
       <y>660</y>
       <width>255</width>
       <height>22</height>
@@ -101,7 +101,7 @@
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>540</x>
+      <x>480</x>
       <y>660</y>
       <width>55</width>
       <height>16</height>
@@ -117,7 +117,7 @@
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>540</x>
+      <x>480</x>
       <y>700</y>
       <width>55</width>
       <height>16</height>
@@ -133,7 +133,7 @@
    <widget class="QSlider" name="slider_max">
     <property name="geometry">
      <rect>
-      <x>610</x>
+      <x>550</x>
       <y>700</y>
       <width>255</width>
       <height>22</height>
@@ -150,7 +150,7 @@
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>680</y>
+      <y>670</y>
       <width>80</width>
       <height>16</height>
      </rect>
@@ -166,7 +166,7 @@
     <property name="geometry">
      <rect>
       <x>140</x>
-      <y>680</y>
+      <y>670</y>
       <width>255</width>
       <height>22</height>
      </rect>
@@ -182,7 +182,7 @@
     <property name="geometry">
      <rect>
       <x>140</x>
-      <y>720</y>
+      <y>710</y>
       <width>255</width>
       <height>22</height>
      </rect>
@@ -198,7 +198,7 @@
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>720</y>
+      <y>710</y>
       <width>80</width>
       <height>16</height>
      </rect>
@@ -213,7 +213,7 @@
    <widget class="QCheckBox" name="check_canny">
     <property name="geometry">
      <rect>
-      <x>540</x>
+      <x>480</x>
       <y>630</y>
       <width>160</width>
       <height>20</height>
@@ -224,6 +224,115 @@
     </property>
     <property name="text">
      <string>Canny Edge Detection</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>870</x>
+      <y>670</y>
+      <width>80</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:white</string>
+    </property>
+    <property name="text">
+     <string>Green</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>870</x>
+      <y>630</y>
+      <width>55</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:white</string>
+    </property>
+    <property name="text">
+     <string>Red</string>
+    </property>
+   </widget>
+   <widget class="QSlider" name="red">
+    <property name="geometry">
+     <rect>
+      <x>960</x>
+      <y>630</y>
+      <width>255</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="maximum">
+     <number>255</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QSlider" name="blue">
+    <property name="geometry">
+     <rect>
+      <x>960</x>
+      <y>710</y>
+      <width>255</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="maximum">
+     <number>126</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_8">
+    <property name="geometry">
+     <rect>
+      <x>870</x>
+      <y>710</y>
+      <width>80</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:white</string>
+    </property>
+    <property name="text">
+     <string>Blue</string>
+    </property>
+   </widget>
+   <widget class="QSlider" name="green">
+    <property name="geometry">
+     <rect>
+      <x>960</x>
+      <y>670</y>
+      <width>255</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="maximum">
+     <number>255</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="line_2">
+    <property name="geometry">
+     <rect>
+      <x>830</x>
+      <y>620</y>
+      <width>16</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
     </property>
    </widget>
   </widget>
@@ -261,10 +370,8 @@ color:black;</string>
      <string>Lab1</string>
     </property>
     <addaction name="action_dao_anh"/>
-    <addaction name="action_cat_nguong"/>
-    <addaction name="action_logaric"/>
-    <addaction name="action_ham_mu"/>
     <addaction name="action_muc_xam"/>
+    <addaction name="action_gamma"/>
     <addaction name="actionHistogram"/>
    </widget>
    <addaction name="menuFile"/>
@@ -332,10 +439,16 @@ color:black;</string>
   </action>
   <action name="actionHistogram">
    <property name="text">
-    <string>Cân Bằng Histogram</string>
+    <string>Histogram</string>
    </property>
   </action>
   <action name="action_dao_anh">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Đảo Ảnh</string>
    </property>
@@ -350,14 +463,20 @@ color:black;</string>
     <string>Biến Đổi Logarithmic</string>
    </property>
   </action>
-  <action name="action_ham_mu">
+  <action name="action_gamma">
    <property name="text">
-    <string>Biến Đổi Hàm Mũ</string>
+    <string>Biến Đổi Gamma</string>
+   </property>
+   <property name="toolTip">
+    <string>Biến Đổi Gamma</string>
    </property>
   </action>
   <action name="action_muc_xam">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
    <property name="text">
-    <string>Cắt Lát Mức Xám</string>
+    <string>Ảnh Xám</string>
    </property>
   </action>
   <action name="actionRotateLeft">
