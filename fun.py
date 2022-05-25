@@ -34,6 +34,7 @@ class fun():
         kernel_size = (value + 1, value + 1)
         image = cv2.blur(img, kernel_size)
         return image
+
     def brightness(img,val):
         while True:
             hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
@@ -46,6 +47,7 @@ class fun():
             hsv = np.array(hsv, dtype=np.uint8)
             res = cv2.cvtColor(hsv, cv2.COLOR_HSV2BGR)
             return res
+            
     def contrast(img,contrast):
         if contrast != 131:
             f = 131*(contrast + 127)/(127*(131-contrast))
@@ -54,9 +56,9 @@ class fun():
             buf = cv2.addWeighted(img, alpha_c, img, 0, gamma_c)
             return buf
     def color( img, red, green, blue):
-        img = cv2.convertScaleAbs(img)
+        # img = cv2.convertScaleAbs(img)
         b, g, r = cv2.split(img)
-
+        
         for r_value in r:
             cv2.add(r_value, red, r_value)
         for g_value in g:

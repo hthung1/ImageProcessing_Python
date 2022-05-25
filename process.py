@@ -1,6 +1,6 @@
 
 import sys, cv2, os
-from PyQt5.QtWidgets import QDialog, QApplication, QMainWindow, QWidget, QGraphicsPixmapItem, QGraphicsScene, QFileDialog, qApp
+from PyQt5.QtWidgets import QDialog, QApplication, QMainWindow, QMessageBox, QWidget, QGraphicsPixmapItem, QGraphicsScene, QFileDialog, qApp
 from PyQt5.QtGui import QImage, QPixmap
 from PyQt5.QtCore import QEvent, Qt
 from cv2 import blur
@@ -66,6 +66,7 @@ class Main(QWidget):
         if files:
             self.files = files
             self.img = cv2.imread(self.files[0])
+            print(self.files[0],self.files)
             self.image = self.img
             self.load_img(self.img)
             self.load_img_2(self.img)
@@ -179,6 +180,9 @@ class Main(QWidget):
 
         self.load_img_2(self.img)
 
+    def save_is_success(self):
+        QMessageBox.about(self, "Message", "Save is Success !")
+
     def reset(self):
         self.mwg.slider_blur.setValue(0)
         self.mwg.slider_min.setValue(0)
@@ -193,9 +197,12 @@ class Main(QWidget):
             if (self.files):
                 self.files = ''.join(filename)
                 cv2.imwrite(self.files,self.img)
+
     def save_image(self):
         if(self.files):
-            cv2.imwrite(self.files,self.img)
+            cv2.imwrite(self.files[0],self.img)
+            self.save_is_success()
+            
     def show(self):
         self.main_win.show()
 
