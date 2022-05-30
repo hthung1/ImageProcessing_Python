@@ -56,7 +56,6 @@ class fun():
             buf = cv2.addWeighted(img, alpha_c, img, 0, gamma_c)
             return buf
     def color( img, red, green, blue):
-        # img = cv2.convertScaleAbs(img)
         b, g, r = cv2.split(img)
         
         for r_value in r:

@@ -392,6 +392,8 @@ color:black;</string>
    </attribute>
    <addaction name="actionRotateLeft"/>
    <addaction name="actionRotateRight"/>
+   <addaction name="actionFlipVertical"/>
+   <addaction name="actionFlipHorizontal"/>
    <addaction name="actionReset"/>
   </widget>
   <action name="actionNew">
@@ -524,6 +526,24 @@ color:black;</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Shift+S</string>
+   </property>
+  </action>
+  <action name="actionFlipVertical">
+   <property name="icon">
+    <iconset>
+     <normaloff>icons/flip-vertical.png</normaloff>icons/flip-vertical.png</iconset>
+   </property>
+   <property name="text">
+    <string>flipVertical</string>
+   </property>
+  </action>
+  <action name="actionFlipHorizontal">
+   <property name="icon">
+    <iconset>
+     <normaloff>icons/flip-horizontal.png</normaloff>icons/flip-horizontal.png</iconset>
+   </property>
+   <property name="text">
+    <string>flipHorizontal</string>
    </property>
   </action>
  </widget>

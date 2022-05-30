@@ -30,6 +30,8 @@ class Main(QWidget):
         self.mwg.action_logaric.triggered.connect(self.logaric)
         self.mwg.actionRotateLeft.triggered.connect(self.rotate_left)
         self.mwg.actionRotateRight.triggered.connect(self.rotate_right)
+        self.mwg.actionFlipVertical.triggered.connect(self.flip_vertical)
+        self.mwg.actionFlipHorizontal.triggered.connect(self.flip_horizontal)
         self.mwg.actionReset.triggered.connect(self.reset)
 
         # xử lí slider
@@ -142,6 +144,14 @@ class Main(QWidget):
         if (self.files):
             self.img = cv2.rotate(self.img,cv2.ROTATE_90_CLOCKWISE)
             self.load_img_2(self.img)
+    def flip_vertical(self):
+        if (self.files):
+            self.img = cv2.flip(self.img, 0)
+            self.load_img_2(self.img)
+    def flip_horizontal(self):
+        if (self.files):
+            self.img = cv2.flip(self.img, 1)
+            self.load_img_2(self.img)
 
     def edge_detection(self):
         if (self.files):
@@ -187,6 +197,9 @@ class Main(QWidget):
         self.mwg.slider_blur.setValue(0)
         self.mwg.slider_min.setValue(0)
         self.mwg.slider_max.setValue(0)
+        self.mwg.red.setValue(0)
+        self.mwg.blue.setValue(0)
+        self.mwg.green.setValue(0)
         self.mwg.slider_brightness.setValue(100)
         self.img = self.image
         self.load_img_2(self.img)
